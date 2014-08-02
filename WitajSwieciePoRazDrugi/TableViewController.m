@@ -27,6 +27,8 @@
 {
     [super viewDidLoad];
     
+    self.tablica = @[@"Witaj", @"Świecie", @"Ecie", @"Pecie"];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -53,7 +55,7 @@
 {
 
     // Return the number of rows in the section.
-    return 5;
+    return [self.tablica count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,7 +63,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text =  @"Witaj Świecie";
+    cell.textLabel.text = [self.tablica objectAtIndex:indexPath.row];
     return cell;
 }
 
